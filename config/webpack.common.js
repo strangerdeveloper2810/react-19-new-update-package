@@ -54,6 +54,13 @@ module.exports = {
 
         ],
     },
+    cache: {
+        type: 'filesystem', // 🔥 Lưu cache vào ổ đĩa để build lại nhanh hơn
+        cacheDirectory: path.resolve(__dirname, '../node_modules/.cache/webpack'),
+        buildDependencies: {
+            config: [__filename], // Cache thay đổi khi cấu hình Webpack thay đổi
+        },
+    },
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, '../public/index.html'),
